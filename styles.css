@@ -217,7 +217,6 @@ a { color: inherit; }
   background: var(--cal); border: 6px solid var(--petroleo); color: var(--petroleo);
   font: 700 1.6rem/1 var(--f-display); margin-bottom: 18px;
 }
-.steps li:last-child .steps__n { background: var(--sinal); }
 .steps h3 { margin-bottom: 6px; }
 .steps p { color: var(--ardosia-2); font-size: 1rem; }
 .cta-inline { margin-top: 48px; }
