@@ -102,6 +102,76 @@ const CONTACTO = {
     });
   }
 
+  // Localidade: sugestões à medida que se escreve (pode sempre escrever outra)
+  const LOCALIDADES = [
+    "Albufeira", "Alcoutim", "Aljezur", "Almancil", "Alte", "Altura", "Alvor", "Armação de Pêra",
+    "Benafim", "Bensafrim", "Boliqueime", "Budens", "Cabanas de Tavira", "Carvoeiro", "Castro Marim",
+    "Conceição de Tavira", "Estoi", "Estômbar", "Faro", "Ferragudo", "Ferreiras", "Fuseta", "Gambelas",
+    "Guia", "Lagoa", "Lagos", "Loulé", "Luz", "Manta Rota", "Mexilhoeira Grande", "Moncarapacho",
+    "Monchique", "Monte Gordo", "Montenegro", "Odiáxere", "Olhão", "Olhos de Água", "Paderne",
+    "Patacão", "Pechão", "Portimão", "Praia da Rocha", "Quarteira", "Quelfes", "Querença",
+    "Quinta do Lago", "Sagres", "Salir", "Santa Bárbara de Nexe", "Santa Luzia",
+    "São Bartolomeu de Messines", "São Brás de Alportel", "Silves", "Tavira", "Tunes",
+    "Vale do Garrão", "Vale do Lobo", "Vila do Bispo", "Vila Real de Santo António", "Vilamoura"
+  ];
+  // as mais próximas e procuradas aparecem primeiro nas sugestões
+  const PRIORIDADE = [
+    "Almancil", "Loulé", "Faro", "Olhão", "Quarteira", "Vilamoura", "Quinta do Lago", "Vale do Lobo",
+    "Vale do Garrão", "São Brás de Alportel", "Albufeira", "Tavira", "Boliqueime", "Estoi",
+    "Santa Bárbara de Nexe", "Olhos de Água", "Montenegro", "Gambelas", "Patacão", "Portimão",
+    "Lagoa", "Lagos", "Silves", "Vila Real de Santo António"
+  ];
+  const peso = n => { const i = PRIORIDADE.indexOf(n); return i < 0 ? 999 : i; };
+  const porPeso = (a, b) => peso(a) - peso(b) || a.localeCompare(b, "pt");
+  const semAcentos = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const combo = document.getElementById("f-local");
+  const lista = document.getElementById("f-local-lista");
+  if (combo && lista) {
+    let ativo = -1, opcoes = [];
+    const fechar = () => { lista.hidden = true; combo.setAttribute("aria-expanded", "false"); combo.removeAttribute("aria-activedescendant"); ativo = -1; };
+    const marcar = i => {
+      ativo = i;
+      [...lista.children].forEach((li, k) => li.setAttribute("aria-selected", String(k === i)));
+      if (i >= 0) { combo.setAttribute("aria-activedescendant", lista.children[i].id); lista.children[i].scrollIntoView({ block: "nearest" }); }
+    };
+    const escolher = nome => { combo.value = nome; fechar(); };
+    const procurar = () => {
+      const q = semAcentos(combo.value.trim());
+      if (!q) { fechar(); return; }
+      // primeiro as que começam pelo texto, depois as que têm uma palavra a começar por ele
+      const comeca = LOCALIDADES.filter(n => semAcentos(n).startsWith(q));
+      const palavra = LOCALIDADES.filter(n => !comeca.includes(n) && semAcentos(n).split(/\s+/).some(w => w.startsWith(q)));
+      opcoes = comeca.sort(porPeso).concat(palavra.sort(porPeso)).slice(0, 8);
+      if (!opcoes.length || (opcoes.length === 1 && semAcentos(opcoes[0]) === q)) { fechar(); return; }
+      lista.innerHTML = "";
+      opcoes.forEach((nome, k) => {
+        const li = document.createElement("li");
+        li.id = "f-local-op-" + k;
+        li.setAttribute("role", "option");
+        const ini = semAcentos(nome).indexOf(q);
+        if (ini >= 0) {
+          li.append(nome.slice(0, ini));
+          const m = document.createElement("mark"); m.textContent = nome.slice(ini, ini + q.length); li.append(m);
+          li.append(nome.slice(ini + q.length));
+        } else li.textContent = nome;
+        li.addEventListener("mousedown", e => { e.preventDefault(); escolher(nome); });
+        lista.append(li);
+      });
+      lista.hidden = false;
+      combo.setAttribute("aria-expanded", "true");
+      marcar(0);
+    };
+    combo.addEventListener("input", procurar);
+    combo.addEventListener("keydown", e => {
+      if (lista.hidden) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); marcar((ativo + 1) % opcoes.length); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); marcar((ativo - 1 + opcoes.length) % opcoes.length); }
+      else if (e.key === "Enter" && ativo >= 0) { e.preventDefault(); escolher(opcoes[ativo]); }
+      else if (e.key === "Escape") { fechar(); }
+    });
+    combo.addEventListener("blur", fechar);
+  }
+
   // Formulário de orçamento: valida e abre o email com o pedido preenchido
   const form = document.getElementById("form-orcamento");
   if (!form) return;
