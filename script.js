@@ -63,7 +63,6 @@ const CONTACTO = {
     const focus = svg.querySelector(".map__focus");
     const label = svg.querySelector(".map__label");
     const route = svg.querySelector(".map__route");
-    const caption = document.querySelector(".map__caption");
     const base = { x: +route.getAttribute("x1"), y: +route.getAttribute("y1") };
     const buttons = document.querySelectorAll(".town");
 
@@ -82,9 +81,6 @@ const CONTACTO = {
       label.setAttribute("text-anchor", x > 320 ? "end" : x < 80 ? "start" : "middle");
       // a sul de Almancil (ou demasiado perto do topo) a etiqueta vai para baixo
       label.setAttribute("y", (y > base.y || y < 30) ? 17 : -11);
-      caption.innerHTML = pt
-        ? "<strong>" + nome + "</strong>: servimos esta zona a partir de Almancil."
-        : "<strong>Almancil</strong>, a nossa base.";
     };
     buttons.forEach(b => b.addEventListener("click", () => select(b.dataset.town)));
     select("almancil");
