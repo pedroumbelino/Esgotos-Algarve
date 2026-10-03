@@ -19,11 +19,13 @@ const CONTACTO = {
     document.querySelectorAll("[data-email-text]").forEach(el => el.textContent = CONTACTO.email);
   }
 
-  document.getElementById("ano").textContent = new Date().getFullYear();
+  const ano = document.getElementById("ano");
+  if (ano) ano.textContent = new Date().getFullYear();
 
   // Menu móvel
   const toggle = document.querySelector(".nav__toggle");
   const menu = document.getElementById("menu");
+  if (toggle && menu) {
   const setMenu = open => {
     toggle.setAttribute("aria-expanded", String(open));
     menu.classList.toggle("is-open", open);
@@ -32,12 +34,13 @@ const CONTACTO = {
   toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
   menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+  }
 
   // Barra de chamada em telemóvel: aparece depois do hero
   const bar = document.querySelector(".mobilebar");
   const hero = document.querySelector(".hero");
   const quote = document.getElementById("orcamento");
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && bar && hero && quote) {
     let heroVisible = true, quoteVisible = false;
     const update = () => bar.classList.toggle("is-shown", !heroVisible && !quoteVisible);
     new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; update(); }).observe(hero);
@@ -46,7 +49,7 @@ const CONTACTO = {
     // Revelar secções
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduce) {
-      const items = document.querySelectorAll(".sec-head, .svc, .audience li, .steps li, .towns, .map, .faq, .quote");
+      const items = document.querySelectorAll(".sec-head, .svc, .steps li, .towns, .map, .faq, .quote");
       const io = new IntersectionObserver(entries => {
         entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
       }, { rootMargin: "0px 0px -8% 0px" });
@@ -54,8 +57,54 @@ const CONTACTO = {
     }
   }
 
+  // Mapa de zonas: escolher localidade
+  const svg = document.querySelector(".map svg");
+  if (svg) {
+    const focus = svg.querySelector(".map__focus");
+    const label = svg.querySelector(".map__label");
+    const route = svg.querySelector(".map__route");
+    const caption = document.querySelector(".map__caption");
+    const base = { x: +route.getAttribute("x1"), y: +route.getAttribute("y1") };
+    const buttons = document.querySelectorAll(".town");
+
+    const select = slug => {
+      const pt = svg.querySelector('.map__pt[data-town="' + slug + '"]');
+      const x = pt ? +pt.getAttribute("cx") : base.x;
+      const y = pt ? +pt.getAttribute("cy") : base.y;
+      const nome = pt ? pt.dataset.name : "Almancil";
+      svg.querySelectorAll(".map__pt").forEach(p => p.classList.toggle("is-active", p === pt));
+      buttons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.town === slug)));
+      focus.setAttribute("transform", "translate(" + x + " " + y + ")");
+      focus.style.transform = "translate(" + x + "px, " + y + "px)";
+      route.setAttribute("x2", x); route.setAttribute("y2", y);
+      label.textContent = nome;
+      // manter a etiqueta dentro do mapa
+      label.setAttribute("text-anchor", x > 320 ? "end" : x < 80 ? "start" : "middle");
+      // a sul de Almancil (ou demasiado perto do topo) a etiqueta vai para baixo
+      label.setAttribute("y", (y > base.y || y < 30) ? 17 : -11);
+      caption.innerHTML = pt
+        ? "<strong>" + nome + "</strong>: servimos esta zona a partir de Almancil."
+        : "<strong>Almancil</strong>, a nossa base.";
+    };
+    buttons.forEach(b => b.addEventListener("click", () => select(b.dataset.town)));
+    select("almancil");
+  }
+
+  // Aviso de cookies (só guarda a escolha neste aviso)
+  const cookies = document.querySelector(".cookies");
+  if (cookies) {
+    let visto = false;
+    try { visto = localStorage.getItem("ea-cookies") === "ok"; } catch (e) {}
+    if (!visto) cookies.hidden = false;
+    cookies.querySelector("[data-cookies-ok]").addEventListener("click", () => {
+      try { localStorage.setItem("ea-cookies", "ok"); } catch (e) {}
+      cookies.hidden = true;
+    });
+  }
+
   // Formulário de orçamento: valida e abre o email com o pedido preenchido
   const form = document.getElementById("form-orcamento");
+  if (!form) return;
   const note = form.querySelector(".form__note");
   const showErr = (input, errId, bad) => {
     input.setAttribute("aria-invalid", String(bad));

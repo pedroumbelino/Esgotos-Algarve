@@ -11,9 +11,9 @@
   <meta property="og:description" content="Limpeza de fossas, esgotos e sarjetas em Almancil e no Algarve, desde 2011.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_PT">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/BarlowCondensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PublicSans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -151,19 +151,6 @@
       </div>
     </section>
 
-    <!-- Faixa de urgência -->
-    <aside class="strip" aria-label="Sinais de alerta">
-      <div class="wrap strip__inner">
-        <p class="strip__title">Sinais de que precisa de nós</p>
-        <ul role="list">
-          <li>Cheiro a esgoto no jardim ou em casa</li>
-          <li>Ralos e sanitas a escoar devagar</li>
-          <li>Gorgolejar nos canos</li>
-          <li>Relva encharcada junto à fossa</li>
-        </ul>
-      </div>
-    </aside>
-
     <div class="pipeline">
 
       <!-- SERVIÇOS -->
@@ -172,42 +159,41 @@
           <header class="sec-head">
             <p class="node"><span class="node__cover" aria-hidden="true"></span>01 · Serviços</p>
             <h2 id="servicos-h">Tudo o que corre por baixo do chão</h2>
-            <p class="sec-head__lead">Quatro serviços, uma equipa. Trabalhamos com camião cisterna equipado para sucção e limpeza a alta pressão.</p>
+            <p class="sec-head__lead">Fossas, esgotos, sarjetas e drenagem de obras. Trabalhamos com camião cisterna equipado para sucção e limpeza a alta pressão.</p>
           </header>
 
           <div class="services">
             <article class="svc svc--feature">
-              <div class="svc__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="22" rx="6"/><path d="M24 18V8M18 8h12"/><path d="M8 30q8-4 16 0t16 0" class="w"/></svg>
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="22" rx="6"/><path d="M24 18V8M18 8h12"/><path d="M8 30q8-4 16 0t16 0"/></svg></div>
+                <span class="svc__n" aria-hidden="true">01</span>
               </div>
-              <h3>Esvaziamento e limpeza de fossas sépticas</h3>
-              <p>Sucção completa da fossa, limpeza das paredes e verificação do estado. O serviço que mais nos pedem em moradias sem ligação à rede pública.</p>
-              <ul class="ticks" role="list">
-                <li>Fossas sépticas, estanques e poços absorventes</li>
-                <li>Manutenção periódica com lembrete</li>
-                <li>Transporte para destino final licenciado</li>
-              </ul>
+              <h3>Esvaziamento e limpeza de fossas</h3>
+              <p>Sucção completa de fossas sépticas, estanques e poços absorventes, limpeza das paredes e verificação do estado. Os resíduos seguem para destino final licenciado.</p>
             </article>
 
             <article class="svc">
-              <div class="svc__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48"><path d="M6 14h22a8 8 0 0 1 8 8v20"/><path d="M6 24h14a6 6 0 0 1 6 6v12"/><circle cx="36" cy="10" r="4"/></svg>
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 14h22a8 8 0 0 1 8 8v20"/><path d="M6 24h14a6 6 0 0 1 6 6v12"/><circle cx="36" cy="10" r="4"/></svg></div>
+                <span class="svc__n" aria-hidden="true">02</span>
               </div>
               <h3>Desentupimentos e redes de esgoto</h3>
-              <p>Desentupimento de canalizações, caixas de visita e coletores. Limpeza e gestão de redes de drenagem e pequenas ETAR.</p>
+              <p>Desentupimento de canalizações, caixas de visita e coletores. Limpeza e manutenção de redes de drenagem e pequenas ETAR.</p>
             </article>
 
             <article class="svc">
-              <div class="svc__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="20" rx="2"/><path d="M14 14v20M20 14v20M26 14v20M32 14v20"/><path d="M4 40h40"/></svg>
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="20" rx="2"/><path d="M14 14v20M20 14v20M26 14v20M32 14v20"/><path d="M4 40h40"/></svg></div>
+                <span class="svc__n" aria-hidden="true">03</span>
               </div>
               <h3>Limpeza de sarjetas</h3>
               <p>Remoção de lamas, areias e folhas de sarjetas e caleiras, antes das chuvas de outono ou depois de uma tempestade.</p>
             </article>
 
             <article class="svc">
-              <div class="svc__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48"><path d="M4 38h40"/><path d="M8 38V24l10-6 10 6v14"/><path d="M32 38V20h8v18"/><path d="M14 30h8"/></svg>
+              <div class="svc__top">
+                <div class="svc__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M4 38h40"/><path d="M8 38V24l10-6 10 6v14"/><path d="M32 38V20h8v18"/><path d="M14 30h8"/></svg></div>
+                <span class="svc__n" aria-hidden="true">04</span>
               </div>
               <h3>Drenagem em obra</h3>
               <p>Esgotamento de águas e preparação do terreno para construção. Apoio a empreiteiros e promotores na zona de Loulé e Faro.</p>
@@ -216,39 +202,11 @@
         </div>
       </section>
 
-      <!-- PARA QUEM -->
-      <section class="section section--tint" aria-labelledby="clientes-h">
-        <div class="wrap">
-          <header class="sec-head">
-            <p class="node"><span class="node__cover" aria-hidden="true"></span>02 · Para quem</p>
-            <h2 id="clientes-h">Quem nos chama</h2>
-          </header>
-          <ul class="audience" role="list">
-            <li>
-              <h3>Moradias e quintas</h3>
-              <p>Fossas sem ligação à rede pública. Esvaziamos e combinamos a próxima visita para não ter surpresas.</p>
-            </li>
-            <li>
-              <h3>Condomínios e alojamento local</h3>
-              <p>Manutenção de redes comuns, caixas de visita e sarjetas, com intervenção rápida entre hóspedes.</p>
-            </li>
-            <li>
-              <h3>Restaurantes e hotelaria</h3>
-              <p>Limpeza de caixas de gordura e esgotos com muito uso, fora das horas de serviço.</p>
-            </li>
-            <li>
-              <h3>Obras e empreiteiros</h3>
-              <p>Drenagem de terrenos e esgotamento de águas para a obra não parar.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <!-- COMO FUNCIONA -->
       <section class="section" id="como-funciona" aria-labelledby="processo-h">
         <div class="wrap">
           <header class="sec-head">
-            <p class="node"><span class="node__cover" aria-hidden="true"></span>03 · Como funciona</p>
+            <p class="node"><span class="node__cover" aria-hidden="true"></span>02 · Como funciona</p>
             <h2 id="processo-h">Da chamada ao problema resolvido</h2>
           </header>
           <ol class="steps">
@@ -284,48 +242,63 @@
         <div class="wrap zonas">
           <div>
             <header class="sec-head">
-              <p class="node"><span class="node__cover" aria-hidden="true"></span>04 · Zonas</p>
+              <p class="node"><span class="node__cover" aria-hidden="true"></span>03 · Zonas</p>
               <h2 id="zonas-h">Saímos de Almancil para todo o Algarve</h2>
               <p class="sec-head__lead">Estamos no Sítio do Troto, a minutos da Quinta do Lago e de Vale do Lobo. Quanto mais perto, mais depressa chegamos.</p>
             </header>
+            <p class="towns__hint">Escolha a sua localidade para a ver no mapa.</p>
             <ul class="towns" role="list">
-              <li class="is-base">Almancil</li>
-              <li>Quinta do Lago</li>
-              <li>Vale do Lobo</li>
-              <li>Vale de Garrão</li>
-              <li>Loulé</li>
-              <li>Quarteira</li>
-              <li>Vilamoura</li>
-              <li>Faro</li>
-              <li>São Brás de Alportel</li>
-              <li>Olhão</li>
-              <li>Albufeira</li>
-              <li>Tavira</li>
+              <li><button type="button" class="town" data-town="almancil" aria-pressed="true">Almancil</button></li>
+              <li><button type="button" class="town" data-town="quinta-do-lago" aria-pressed="false">Quinta do Lago</button></li>
+              <li><button type="button" class="town" data-town="vale-do-lobo" aria-pressed="false">Vale do Lobo</button></li>
+              <li><button type="button" class="town" data-town="vale-de-garrao" aria-pressed="false">Vale de Garrão</button></li>
+              <li><button type="button" class="town" data-town="loule" aria-pressed="false">Loulé</button></li>
+              <li><button type="button" class="town" data-town="quarteira" aria-pressed="false">Quarteira</button></li>
+              <li><button type="button" class="town" data-town="vilamoura" aria-pressed="false">Vilamoura</button></li>
+              <li><button type="button" class="town" data-town="faro" aria-pressed="false">Faro</button></li>
+              <li><button type="button" class="town" data-town="sao-bras" aria-pressed="false">São Brás de Alportel</button></li>
+              <li><button type="button" class="town" data-town="olhao" aria-pressed="false">Olhão</button></li>
+              <li><button type="button" class="town" data-town="albufeira" aria-pressed="false">Albufeira</button></li>
+              <li><button type="button" class="town" data-town="tavira" aria-pressed="false">Tavira</button></li>
             </ul>
             <p class="towns__note">Não vê a sua localidade? Ligue na mesma, servimos todo o distrito de Faro.</p>
           </div>
-          <figure class="map" aria-hidden="true">
-            <svg viewBox="0 0 400 220">
-              <path class="map__coast" d="M8 70c40 6 70-4 100 6s50 30 80 34 40 12 60 20 40-4 60 2 50 24 84 26"/>
-              <path class="map__land" d="M8 70c40 6 70-4 100 6s50 30 80 34 40 12 60 20 40-4 60 2 50 24 84 26V0H8z"/>
-              <g class="map__range">
-                <circle cx="196" cy="112" r="40"/>
-                <circle cx="196" cy="112" r="80"/>
-                <circle cx="196" cy="112" r="130"/>
+          <figure class="map">
+            <svg viewBox="28 14 344 120" role="img" aria-labelledby="map-t">
+              <title id="map-t">Mapa do Algarve central com as localidades que servimos, a partir de Almancil</title>
+              <path class="map__land" d="M0 66 L50 73 L110 80 L130 86 L150 98 L172 104 L200 116 L232 118 L262 110 L300 90 L350 54 L400 46 V0 H0z"/>
+              <path class="map__coast" d="M0 66 L50 73 L110 80 L130 86 L150 98 L172 104 L200 116 L232 118 L262 110 L300 90 L350 54 L400 46"/>
+              <g class="map__range" aria-hidden="true">
+                <circle cx="160.0" cy="72.9" r="30"/>
+                <circle cx="160.0" cy="72.9" r="70"/>
+                <circle cx="160.0" cy="72.9" r="120"/>
               </g>
+              <text class="map__sea" x="200" y="128" text-anchor="middle">Oceano Atlântico</text>
+              <line class="map__route" x1="160.0" y1="72.9" x2="160.0" y2="72.9"/>
               <g class="map__pts">
-                <circle cx="120" cy="80" r="3"/><text x="104" y="70">Albufeira</text>
-                <circle cx="160" cy="98" r="3"/><text x="140" y="90">Vilamoura</text>
-                <circle cx="210" cy="78" r="3"/><text x="200" y="68">Loulé</text>
-                <circle cx="248" cy="128" r="3"/><text x="254" y="124">Faro</text>
-                <circle cx="300" cy="134" r="3"/><text x="300" y="124">Olhão</text>
-                <circle cx="356" cy="144" r="3"/><text x="342" y="134">Tavira</text>
+                <circle class="map__pt" data-town="quinta-do-lago" data-name="Quinta do Lago" cx="165.0" cy="99.7" r="2.6"/>
+                <circle class="map__pt" data-town="vale-do-lobo" data-name="Vale do Lobo" cx="145.0" cy="93.5" r="2.6"/>
+                <circle class="map__pt" data-town="vale-de-garrao" data-name="Vale de Garrão" cx="155.0" cy="97.8" r="2.6"/>
+                <circle class="map__pt" data-town="loule" data-name="Loulé" cx="165.0" cy="38.6" r="2.6"/>
+                <circle class="map__pt" data-town="quarteira" data-name="Quarteira" cx="125.0" cy="81.0" r="2.6"/>
+                <circle class="map__pt" data-town="vilamoura" data-name="Vilamoura" cx="115.0" cy="74.8" r="2.6"/>
+                <circle class="map__pt" data-town="faro" data-name="Faro" cx="207.5" cy="114.0" r="2.6"/>
+                <circle class="map__pt" data-town="sao-bras" data-name="São Brás de Alportel" cx="231.0" cy="29.9" r="2.6"/>
+                <circle class="map__pt" data-town="olhao" data-name="Olhão" cx="255.0" cy="107.8" r="2.6"/>
+                <circle class="map__pt" data-town="albufeira" data-name="Albufeira" cx="50.0" cy="68.5" r="2.6"/>
+                <circle class="map__pt" data-town="tavira" data-name="Tavira" cx="350.0" cy="45.5" r="2.6"/>
               </g>
               <g class="map__base">
-                <circle cx="196" cy="112" r="8"/>
-                <text x="164" y="142">Almancil</text>
+                <circle cx="160.0" cy="72.9" r="4.5"/>
+              </g>
+              <g class="map__focus" transform="translate(160.0 72.9)">
+                <circle class="map__pulse" r="6"/>
+                <circle class="map__ring" r="6"/>
+                <circle class="map__dot" r="3.2"/>
+                <text class="map__label" y="-12" text-anchor="middle">Almancil</text>
               </g>
             </svg>
+            <figcaption class="map__caption" aria-live="polite">Almancil, a nossa base</figcaption>
           </figure>
         </div>
       </section>
@@ -334,7 +307,7 @@
       <section class="section" id="perguntas" aria-labelledby="faq-h">
         <div class="wrap faq-wrap">
           <header class="sec-head">
-            <p class="node"><span class="node__cover" aria-hidden="true"></span>05 · Perguntas</p>
+            <p class="node"><span class="node__cover" aria-hidden="true"></span>04 · Perguntas</p>
             <h2 id="faq-h">Perguntas frequentes</h2>
           </header>
           <div class="faq">
@@ -366,7 +339,7 @@
       <section class="section section--quote" id="orcamento" aria-labelledby="orc-h">
         <div class="wrap quote">
           <div class="quote__intro">
-            <p class="node node--light"><span class="node__cover" aria-hidden="true"></span>06 · Orçamento</p>
+            <p class="node node--light"><span class="node__cover" aria-hidden="true"></span>05 · Orçamento</p>
             <h2 id="orc-h">Peça o seu orçamento</h2>
             <p>Responda a três perguntas e enviamos-lhe o preço. Se for urgente, ligue: é mais rápido.</p>
             <a class="phone-big" data-phone-link href="tel:+351000000000">
@@ -407,6 +380,7 @@
               <label for="f-msg">O que se passa? <span class="opt">(opcional)</span></label>
               <textarea id="f-msg" name="mensagem" rows="3" placeholder="ex.: fossa de 6 m³, última limpeza há 2 anos"></textarea>
             </div>
+            <p class="form__legal">Usamos estes dados só para responder ao seu pedido. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
             <button class="btn btn--sinal btn--lg btn--block" type="submit">Pedir orçamento</button>
             <p class="form__note" role="status" aria-live="polite"></p>
           </form>
@@ -431,7 +405,15 @@
     </div>
     <div class="wrap footer__legal">
       <p>© <span id="ano">2026</span> Esgotos Algarve. Ao serviço do Algarve desde 2011.</p>
-      <p><a href="https://www.livroreclamacoes.pt" rel="noopener" target="_blank">Livro de Reclamações</a></p>
+      <ul class="footer__links" role="list">
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+        <li><a href="cookies.html">Política de Cookies</a></li>
+        <li><a href="termos.html">Termos e Condições</a></li>
+        <li><a href="https://www.livroreclamacoes.pt" rel="noopener" target="_blank">Livro de Reclamações</a></li>
+      </ul>
+    </div>
+    <div class="wrap footer__credit">
+      <p>Site desenvolvido por <a href="https://aibrya.com" rel="noopener" target="_blank">aibrya.com</a></p>
     </div>
   </footer>
 
@@ -441,6 +423,11 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
       Ligar agora
     </a>
+  </div>
+
+  <div class="cookies" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Este site não usa cookies de publicidade nem de estatística. Guardamos apenas a sua escolha neste aviso. <a href="cookies.html">Política de Cookies</a></p>
+    <button type="button" class="btn btn--sinal btn--sm" data-cookies-ok>Entendido</button>
   </div>
 
   <script src="script.js"></script>
