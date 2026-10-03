@@ -247,7 +247,6 @@ a { color: inherit; }
 .map__dot { fill: var(--sinal); stroke: var(--petroleo); stroke-width: 1.5; }
 .map__ring { fill: none; stroke: var(--sinal); stroke-width: 1.2; }
 .map__pulse { fill: var(--sinal); opacity: .5; transform-box: fill-box; transform-origin: center; animation: pulse 1.6s ease-out infinite; }
-.map__sea { font: 600 6px var(--f-body); fill: rgb(143 195 199 / .5); letter-spacing: .3em; text-transform: uppercase; }
 .map__label { font: 700 8px var(--f-display); fill: var(--sinal); text-transform: uppercase; letter-spacing: .08em; paint-order: stroke; stroke: #0A2C38; stroke-width: 3px; }
 .map__caption { margin-top: 12px; font-size: .95rem; color: rgb(244 246 245 / .78); }
 .map__caption strong { color: var(--sinal); }
