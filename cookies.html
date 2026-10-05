@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Política de Cookies | Esgotos Algarve</title>
   <meta name="description" content="Que cookies e tecnologias semelhantes este site usa.">
-  <meta name="theme-color" content="#0B3341">
+  <meta name="theme-color" content="#0B1F4D">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="styles.css">
@@ -13,11 +13,25 @@
 <body>
   <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
 
+  <!-- Símbolo do logótipo (redesenhado em vetor) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <mask id="lg-m1" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><circle cx="60" cy="43" r="35" fill="#000"/></mask>
+      <mask id="lg-m2" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><circle cx="71" cy="34" r="22" fill="#000"/></mask>
+      <mask id="lg-m3" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><rect width="100" height="100" fill="#fff"/><circle cx="79" cy="27" r="12" fill="#000"/></mask>
+      <symbol id="logo-mark" viewBox="0 0 100 100">
+        <circle cx="45" cy="56" r="42" fill="currentColor" mask="url(#lg-m1)"/>
+        <circle cx="62" cy="41" r="28" fill="currentColor" mask="url(#lg-m2)"/>
+        <circle cx="73" cy="31" r="17" fill="currentColor" mask="url(#lg-m3)"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <header class="topbar" id="topo">
     <div class="wrap topbar__inner">
       <a class="brand" href="index.html" aria-label="Esgotos Algarve, início">
-        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="currentColor"/><circle cx="32" cy="32" r="22" fill="none" stroke="var(--sinal)" stroke-width="4"/><path d="M18 26h28M16 32h32M18 38h28" stroke="var(--sinal)" stroke-width="3" stroke-linecap="round"/></svg>
-        <span class="brand__name">Esgotos<strong>Algarve</strong></span>
+        <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand__name">Esgotos Algarve</span>
       </a>
       <nav class="nav" aria-label="Principal">
         <button class="nav__toggle" aria-expanded="false" aria-controls="menu">
@@ -32,9 +46,9 @@
           <li><a href="index.html#orcamento">Orçamento</a></li>
         </ul>
       </nav>
-      <a class="btn btn--sinal btn--sm topbar__call" data-phone-link href="tel:+351000000000" aria-label="Ligar, piquete 24 horas">
+      <a class="btn btn--ceu btn--sm topbar__call" href="tel:+351966551617">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-        <span>Ligar 24h</span>
+        <span>Ligar</span>
       </a>
     </div>
   </header>
@@ -73,7 +87,8 @@
         <p><strong>Esgotos Algarve Vimasilco Unipessoal Lda</strong><br>
         NIF 509934170<br>
         Rua da Rádio, Caixa Postal 121-T, Sítio do Troto, 8135-030 Almancil, Loulé<br>
-        Email: <a data-email-link href="mailto:geral@exemplo.pt"><span data-email-text>geral@exemplo.pt</span></a> · Telefone: <a data-phone-link href="tel:+351000000000"><span data-phone-text>000 000 000</span></a></p>
+        Email: <a href="mailto:esgotosalgarve@gmail.com">esgotosalgarve@gmail.com</a><br>
+        Telefone: <a href="tel:+351966551617">966 551 617</a> (Pedro Parreira) · <a href="tel:+351966797838">966 797 838</a> (Vitor Parreira)</p>
       </article>
     </div>
   </main>
@@ -81,14 +96,18 @@
   <footer class="footer">
     <div class="wrap footer__grid">
       <div>
-        <p class="brand brand--foot"><span class="brand__name">Esgotos<strong>Algarve</strong></span></p>
+        <a class="brand" href="index.html" aria-label="Esgotos Algarve, voltar ao topo">
+          <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+          <span class="brand__name">Esgotos Algarve</span>
+        </a>
       </div>
       <div>
         <p>Rua da Rádio, Caixa Postal 121-T<br>Sítio do Troto, 8135-030 Almancil, Loulé</p>
       </div>
       <div>
-        <p><a data-phone-link href="tel:+351000000000"><span data-phone-text>000 000 000</span></a></p>
-        <p><a data-email-link href="mailto:geral@exemplo.pt"><span data-email-text>geral@exemplo.pt</span></a></p>
+        <p><a href="tel:+351966551617">966 551 617</a> · Pedro Parreira</p>
+        <p><a href="tel:+351966797838">966 797 838</a> · Vitor Parreira</p>
+        <p><a href="mailto:esgotosalgarve@gmail.com">esgotosalgarve@gmail.com</a></p>
       </div>
     </div>
     <div class="wrap footer__legal">
@@ -107,7 +126,7 @@
 
   <div class="cookies" role="region" aria-label="Aviso de cookies" hidden>
     <p>Este site não usa cookies de publicidade nem de estatística. Guardamos apenas a sua escolha neste aviso. <a href="cookies.html">Política de Cookies</a></p>
-    <button type="button" class="btn btn--sinal btn--sm" data-cookies-ok>Entendido</button>
+    <button type="button" class="btn btn--ceu btn--sm" data-cookies-ok>Entendido</button>
   </div>
 
   <script src="script.js"></script>

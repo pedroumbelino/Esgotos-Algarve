@@ -1,24 +1,7 @@
-/* =========================================================
-   CONTACTOS: altere aqui e o site inteiro é atualizado.
-   ========================================================= */
-const CONTACTO = {
-  telefone: "",            // ex.: "+351 912 345 678"  (por preencher)
-  email: "",               // ex.: "geral@esgotosalgarve.pt" (por preencher)
-};
+/* Email para onde seguem os pedidos de orçamento */
+const CONTACTO = { email: "esgotosalgarve@gmail.com" };
 
 (function () {
-  // Aplicar contactos
-  if (CONTACTO.telefone) {
-    const digits = CONTACTO.telefone.replace(/[^\d+]/g, "");
-    const pretty = CONTACTO.telefone.replace(/^\+351\s?/, "");
-    document.querySelectorAll("[data-phone-link]").forEach(a => a.href = "tel:" + digits);
-    document.querySelectorAll("[data-phone-text]").forEach(el => el.textContent = pretty);
-  }
-  if (CONTACTO.email) {
-    document.querySelectorAll("[data-email-link]").forEach(a => a.href = "mailto:" + CONTACTO.email);
-    document.querySelectorAll("[data-email-text]").forEach(el => el.textContent = CONTACTO.email);
-  }
-
   const ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
 
