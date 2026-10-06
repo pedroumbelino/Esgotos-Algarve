@@ -1,4 +1,4 @@
-/* Email para onde seguem os pedidos de orçamento */
+/* Email para onde seguem os pedidos de contacto */
 const CONTACTO = { email: "esgotosalgarve@gmail.com" };
 
 (function () {
@@ -151,7 +151,7 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
     combo.addEventListener("blur", fechar);
   }
 
-  // Formulário de orçamento: valida e abre o email com o pedido preenchido
+  // Formulário de contacto: valida e abre o email com o pedido preenchido
   const form = document.getElementById("form-orcamento");
   if (!form) return;
   const note = form.querySelector(".form__note");
@@ -186,8 +186,8 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
       return;
     }
     window.location.href = "mailto:" + CONTACTO.email +
-      "?subject=" + encodeURIComponent("Pedido de orçamento: " + servico) +
+      "?subject=" + encodeURIComponent("Pedido de contacto: " + servico) +
       "&body=" + encodeURIComponent(corpo);
-    note.textContent = "Abrimos o seu email com o pedido de orçamento preenchido. Só falta carregar em enviar.";
+    note.textContent = "Abrimos o seu email com o pedido de contacto preenchido. Só falta carregar em enviar.";
   });
 })();
