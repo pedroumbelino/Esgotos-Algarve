@@ -19,5 +19,5 @@ Site estático (HTML, CSS e JavaScript, sem dependências) da Esgotos Algarve, A
 - Cores a partir do logótipo: Marinho `#0B1F4D`, Azul `#1F5FBF`, Céu `#8CC8EE` (símbolo e nome), fundo `#F5F8FC`
 - League Spartan (títulos), Didact Gothic (nome no logótipo), Public Sans (texto)
 - O símbolo do logótipo foi redesenhado em vetor a partir de uma imagem; substituir pelo ficheiro original quando existir
-- Assinatura: linhas onduladas do fundo da marca, corte técnico com inspeção CCTV no topo e "conduta" que liga as secções
+- Assinatura: linhas onduladas do fundo da marca, "conduta" que liga as secções
 - Mapa de zonas interativo: ao escolher uma localidade, o mapa assinala-a com um círculo a pulsar
