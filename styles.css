@@ -175,7 +175,7 @@ a { color: inherit; }
 }
 
 /* ---------- Serviços ---------- */
-.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .svc {
   background: #fff; border: 1px solid var(--linha); border-radius: 16px; padding: clamp(24px, 3vw, 36px);
   display: flex; flex-direction: column; gap: 12px;
@@ -360,6 +360,7 @@ a { color: inherit; }
 
 /* =================== Responsivo =================== */
 @media (max-width: 1024px) {
+  .services { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
   .steps::before { display: none; }
 }
