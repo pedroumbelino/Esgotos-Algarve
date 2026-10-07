@@ -1,9 +1,10 @@
 # Esgotos Algarve, website
 
-Site estático (HTML, CSS e JavaScript, sem dependências) da Esgotos Algarve, Almancil.
+Site estático (HTML, CSS e JavaScript, sem dependências) da Esgotos Algarve, Olhão.
 
 ## Ficheiros
-- `index.html`: página principal
+- `index.html`: página principal (português)
+- `en/index.html`: versão em inglês (as páginas legais ficam em português)
 - `privacidade.html`, `cookies.html`, `termos.html`: páginas legais (devem ser revistas por um jurista antes de publicar)
 - `styles.css`: sistema de tokens (cores, tipografia) e layout
 - `script.js`: menu móvel, mapa de zonas, sugestões de localidade, aviso de cookies e formulário de contacto
@@ -13,6 +14,7 @@ Site estático (HTML, CSS e JavaScript, sem dependências) da Esgotos Algarve, A
 ## Contactos
 - Pedro Parreira: 966 551 617
 - Vitor Parreira: 966 797 838
+- WhatsApp: número do Pedro (botão flutuante, barra do telemóvel e secção de contacto)
 - Email: esgotosalgarve@gmail.com (destino dos pedidos de contacto, definido no topo de `script.js`)
 
 ## Sistema visual

@@ -1,6 +1,20 @@
 /* Email para onde seguem os pedidos de contacto */
 const CONTACTO = { email: "esgotosalgarve@gmail.com" };
 
+/* Textos gerados pelo script, nas duas línguas do site */
+const EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+const T = EN ? {
+  abrir: "Open menu", fechar: "Close menu", base: "Olhão",
+  servico: "Service", nome: "Name", telefone: "Phone", localidade: "Area", semLocal: "not given",
+  assunto: "Contact request: ", semEmail: "The company email is not set up yet. Please call us directly.",
+  aberto: "Your email app is open with the request filled in. Just press send."
+} : {
+  abrir: "Abrir menu", fechar: "Fechar menu", base: "Olhão",
+  servico: "Serviço", nome: "Nome", telefone: "Telefone", localidade: "Localidade", semLocal: "não indicada",
+  assunto: "Pedido de contacto: ", semEmail: "O email da empresa ainda não está configurado. Por agora, ligue-nos diretamente.",
+  aberto: "Abrimos o seu email com o pedido de contacto preenchido. Só falta carregar em enviar."
+};
+
 (function () {
   const ano = document.getElementById("ano");
   if (ano) ano.textContent = new Date().getFullYear();
@@ -12,7 +26,7 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
   const setMenu = open => {
     toggle.setAttribute("aria-expanded", String(open));
     menu.classList.toggle("is-open", open);
-    toggle.querySelector(".sr-only").textContent = open ? "Fechar menu" : "Abrir menu";
+    toggle.querySelector(".sr-only").textContent = open ? T.fechar : T.abrir;
   };
   toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
   menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
@@ -53,7 +67,7 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
       const pt = svg.querySelector('.map__pt[data-town="' + slug + '"]');
       const x = pt ? +pt.getAttribute("cx") : base.x;
       const y = pt ? +pt.getAttribute("cy") : base.y;
-      const nome = pt ? pt.dataset.name : "Almancil";
+      const nome = pt ? pt.dataset.name : T.base;
       svg.querySelectorAll(".map__pt").forEach(p => p.classList.toggle("is-active", p === pt));
       buttons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.town === slug)));
       focus.setAttribute("transform", "translate(" + x + " " + y + ")");
@@ -62,11 +76,11 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
       label.textContent = nome;
       // manter a etiqueta dentro do mapa
       label.setAttribute("text-anchor", x > 320 ? "end" : x < 80 ? "start" : "middle");
-      // a sul de Almancil (ou demasiado perto do topo) a etiqueta vai para baixo
+      // a sul da base (ou demasiado perto do topo) a etiqueta vai para baixo
       label.setAttribute("y", (y > base.y || y < 30) ? 17 : -11);
     };
     buttons.forEach(b => b.addEventListener("click", () => select(b.dataset.town)));
-    select("almancil");
+    select("olhao");
   }
 
   // Aviso de cookies (só guarda a escolha neste aviso)
@@ -95,9 +109,9 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
   ];
   // as mais próximas e procuradas aparecem primeiro nas sugestões
   const PRIORIDADE = [
-    "Almancil", "Loulé", "Faro", "Olhão", "Quarteira", "Vilamoura", "Quinta do Lago", "Vale do Lobo",
-    "Vale do Garrão", "São Brás de Alportel", "Albufeira", "Tavira", "Boliqueime", "Estoi",
-    "Santa Bárbara de Nexe", "Olhos de Água", "Montenegro", "Gambelas", "Patacão", "Portimão",
+    "Olhão", "Faro", "Tavira", "São Brás de Alportel", "Fuseta", "Moncarapacho", "Quelfes", "Pechão",
+    "Estoi", "Loulé", "Almancil", "Quinta do Lago", "Vale do Lobo", "Vale do Garrão", "Quarteira",
+    "Vilamoura", "Albufeira", "Santa Bárbara de Nexe", "Montenegro", "Gambelas", "Portimão",
     "Lagoa", "Lagos", "Silves", "Vila Real de Santo António"
   ];
   const peso = n => { const i = PRIORIDADE.indexOf(n); return i < 0 ? 999 : i; };
@@ -173,21 +187,21 @@ const CONTACTO = { email: "esgotosalgarve@gmail.com" };
 
     const servico = form.servico.value;
     const corpo = [
-      "Serviço: " + servico,
-      "Nome: " + nome.value.trim(),
-      "Telefone: " + tel.value.trim(),
-      "Localidade: " + (form.localidade.value.trim() || "não indicada"),
+      T.servico + ": " + servico,
+      T.nome + ": " + nome.value.trim(),
+      T.telefone + ": " + tel.value.trim(),
+      T.localidade + ": " + (form.localidade.value.trim() || T.semLocal),
       "",
       form.mensagem.value.trim()
     ].join("\n");
 
     if (!CONTACTO.email) {
-      note.textContent = "O email da empresa ainda não está configurado. Por agora, ligue-nos diretamente.";
+      note.textContent = T.semEmail;
       return;
     }
     window.location.href = "mailto:" + CONTACTO.email +
-      "?subject=" + encodeURIComponent("Pedido de contacto: " + servico) +
+      "?subject=" + encodeURIComponent(T.assunto + servico) +
       "&body=" + encodeURIComponent(corpo);
-    note.textContent = "Abrimos o seu email com o pedido de contacto preenchido. Só falta carregar em enviar.";
+    note.textContent = T.aberto;
   });
 })();
